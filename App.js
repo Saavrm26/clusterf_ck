@@ -12,7 +12,11 @@ app.get('/', (req,res)=>{
 });
 
 app.get('/api',(req,res)=>{
-    res.status(200).json(getGraph());
+    const {n,m,str} = req.query;
+    if(n && m && str )
+        res.status(200).json(getGraph(n,m,str));
+    else
+        res.status(404).send("Invalid Query");
 });
 
 app.listen(BLESSED_PORT,()=>{
