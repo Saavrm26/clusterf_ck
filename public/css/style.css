@@ -1,0 +1,14 @@
+body {
+  color: #fff;
+  background: hsl(227, 10%, 10%);
+  font: 300 1em 'Fira Sans', sans-serif;
+}
+input{
+    color: #fff;
+    background: inherit;
+    border: 2px solid #fff;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+}
