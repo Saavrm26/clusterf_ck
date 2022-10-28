@@ -1,17 +1,25 @@
+const axios = require('axios');
 const express = require('express');
 const { getGraph } = require('./Graph');
 const app = express();
-const CURSED_PORT = 6900;
+
+const BLESSED_PORT = 6900;
 app.use(express.static('./public'));
 app.use(express.json());
-app.get('/',(req,res)=>{
-    res.send("Hello");
+// const initializeGraph= async (req,res,next)=>{
+//     const url = `${req.protocol}://${req.headers.host}`;
+//     const {data} = await axios.get(url+'/api');
+//     console.log(data);
+// }
+app.use('/axios',express.static('./node_modules/axios/dist/axios.js'));
+app.get('/', (req,res)=>{
+    res.render('index.html');
 });
 
 app.get('/api',(req,res)=>{
     res.status(200).json(getGraph());
 });
 
-app.listen(CURSED_PORT,()=>{
-    console.log(` App is listening on ${CURSED_PORT}`);
+app.listen(BLESSED_PORT,()=>{
+    console.log(` App is listening on ${BLESSED_PORT}`);
 })
