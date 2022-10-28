@@ -6,11 +6,6 @@ const app = express();
 const BLESSED_PORT = 6900;
 app.use(express.static('./public'));
 app.use(express.json());
-// const initializeGraph= async (req,res,next)=>{
-//     const url = `${req.protocol}://${req.headers.host}`;
-//     const {data} = await axios.get(url+'/api');
-//     console.log(data);
-// }
 app.use('/axios',express.static('./node_modules/axios/dist/axios.js'));
 app.get('/', (req,res)=>{
     res.render('index.html');
